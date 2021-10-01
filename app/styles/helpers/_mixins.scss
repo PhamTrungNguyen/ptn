@@ -1,0 +1,131 @@
+@mixin absoluteCenter($direction: "left", $position: absolute) {
+  position: $position;
+  @if $direction == "left" {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @if $direction == "top" {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @if $direction == "both" {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+@mixin flex(
+  $item: stretch,
+  $content: flex-start,
+  $direction: row,
+  $wrap: nowrap
+) {
+  display: flex;
+  align-items: $item;
+  justify-content: $content;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
+
+@mixin hover($itemClass, $contentClass, $transform: "true") {
+  /* mixin class */
+  #{$itemClass} {
+    position: relative;
+    z-index: 1;
+    transition: all 0.25s linear;
+
+    @if $transform == "true" {
+      &:after {
+        /* tạo lớp phủ màu xanh full item */
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        /* transform:translate(10px,10px); */
+        background-color: $green-color;
+        transition: all 0.25s linear;
+        z-index: -1;
+      }
+    }
+    &:hover {
+      #{$contentClass} {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      @if $transform == "true"{
+        transform: translate(-10px, -10px);
+        &:after {
+          /* đẩy lớp phủ màu xanh lại vt bđ */
+          transform: translate(10px, 10px);
+        }
+      }
+    }
+    #{$contentClass} {
+      /* hover */
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s linear;
+      padding: 2rem;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      background: linear-gradient(
+          to bottom,
+          rgba($red-color, 0.8),
+          rgba($yellow-color, 0.8)
+        ),
+        no-repeat center center/cover; // rgba độ mờ
+      @include flex(center, center, column);
+    }
+  }
+}
+
+@mixin scroll-x($scroll: "true", $width: 75%, $gap: 2.5rem, $padding: 1rem) {
+  /* chỉnh sang ngang */
+  grid-auto-columns: $width; /* mỗi cột chiếm 80% */
+  grid-auto-flow: column;
+  overflow-x: auto;
+  grid-template-columns: unset;
+  grid-column-gap: $gap;
+  padding: $padding;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  @if $scroll == "true" {
+    &::-webkit-scrollbar {
+      /* ẩn thanh scroll */
+      display: none;
+    }
+  } 
+  @if $scroll == "false" {
+    /* css scroll */
+    &::-webkit-scrollbar {
+      /* độ rộng scroll */
+      height: 0.6rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      /* thanh ngoài */
+      background-color: $gray-dark-color;
+      border-radius: 2rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      /* thanh scroll */
+      background-color: $red-color;
+      border-radius: 2rem;
+    }
+  }
+  /* hiệu ứng scroll */
+  scroll-snap-type: x mandatory;
+  scroll-snap-stop: always;
+  & > * {
+    /* trỏ tới con trực tiếp */
+    scroll-snap-align: center;
+  }
+}

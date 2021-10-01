@@ -1,0 +1,58 @@
+.wrapper{
+    max-width: $wrapper;
+    margin: 0 auto;
+}
+.container{
+    max-width: $container + 30px;
+    margin: 0 auto;
+    padding:15px;
+}
+.block-box{
+    text-align:center; /* xuống dòng canh giữa */
+    max-width: 96rem;  /* max-width nên phải dùng margin */
+    margin: 0 auto;
+    &-caption{
+        font-family: $third-font;
+        font-size: 24px;
+        margin-bottom: 2.5rem;
+    }
+    &-title{
+        font-family: $primary-font;
+        font-size: 3rem;
+        font-weight: bold;
+        padding-bottom: 4rem;
+        margin-bottom: 5rem;
+        text-transform: uppercase;
+        position: relative;
+        &:after{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            @include absoluteCenter(left);
+            width:6rem;
+            height:3px;
+            background-color: $red-color;
+        }
+    }   
+    &-desc{
+        font-family:$secondary-font;
+        font-size: 15px;
+        font-weight: 300;
+        color:$text-color;
+        line-height: 1.4;
+        margin-bottom: 10rem;
+    }
+    @media  screen and (max-width:767px){
+        &-caption {
+            font-size: 2rem;
+        }
+        &-title {
+            font-size: 2.5rem;
+            padding-bottom: 3rem;
+            margin-bottom: 4rem;
+        }
+        &-desc{
+            margin-bottom: 5rem;
+        }
+    }
+}

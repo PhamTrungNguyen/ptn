@@ -1,0 +1,84 @@
+.service{
+	padding-top: 11rem;
+	padding-bottom:12rem;
+	background-color: white;
+	
+	&-list{
+		@include flex(stretch,space-between);
+		margin-top: 6.5rem;
+	}
+	&-list:first-of-type{
+		border-bottom: 1px solid $text-color; /* sẽ lỗi nên phải tạo 1 div bọc lại */
+		padding-bottom: 5rem;
+		
+	}
+	&-item{
+		width: calc(33.33% - 2.7rem); /* (40+40)/3 */
+		@include flex(flex-start,flex-start);
+	}
+	&-item:first-child{
+		margin-left: -2rem;
+	}
+	&-item-icon{
+		margin: 0 3rem;
+		font-size: 3.5rem;
+		color: $green-color;
+	}
+	&-item-info{
+		/* 3+3+3.5=9.5 : chiem het phan con lai */
+		width: calc(100% - 9.5rem);
+		height:100%;
+		@include flex(flex-start, space-between,column);
+	}
+	&-item-title{
+		text-transform: uppercase;
+		margin-bottom: 1rem;
+		color: $title-color;
+		font-weight: bold;
+		line-height: 1.4;
+		display:-webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient:vertical;
+		overflow:hidden;
+		text-overflow:ellipsis;
+		width:100%;
+		max-width:100%;
+		white-space:pre-wrap;
+		word-break: break-word;
+	}
+	&-item-desc{
+		color: $text-color;
+		line-height:1.4;
+		font-family: $secondary-font;
+	}
+	/* Chia cột với css grid   , sẽ đề lên code ở trên*/
+	@media  screen and (min-width:1024px){
+		&-list{
+			display: grid;
+			grid-template-columns: repeat(3,1fr);
+			grid-gap: 0 4rem;
+		}
+		&-item{
+			width: auto;
+		}
+	
+	}
+	@media  screen and (max-width:1023px){
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+		&-list{
+			display: block;
+			margin-top: 5.5rem;
+		}
+		&-item:first-child {
+			 margin-left: 0;
+		}
+		&-item{
+			width: 100%;
+			margin-bottom: 3rem;
+		}
+		&-list:first-of-type {
+			padding-bottom: 2rem;
+		}
+	}
+}

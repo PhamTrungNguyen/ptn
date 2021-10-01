@@ -1,0 +1,108 @@
+.wedo {
+  padding-top: 11rem;
+  &-item:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+  /* Trỏ tới wedo-item-content */
+  &-item.is-active .wedo-item-content {
+    display: block;
+  }
+
+  /* c1 : flex-box */
+  /* &-container {
+    @include flex(stretch, space-between);
+  }
+  &-image,
+  &-content {
+    width: calc(50% - 1.5rem);
+  } */
+  /* c2: grid */
+  &-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap:0 30px ;
+  }
+
+
+  &-image {
+    object-fit: cover;
+  }
+  &-item-header {
+    @include flex(center);
+    padding: 1.5rem;
+    border: 1px solid $gray-dark-color;
+    cursor: pointer;
+  }
+  &-item-title {
+    margin-left: 1.5rem;
+    text-transform: uppercase;
+    color: $title-color;
+    font-weight: 500;
+    padding-right: 2rem;
+    /* hiện dấu ... */
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    max-width: 100%;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  &-item-arrow {
+    margin-left: auto;
+    font-size: 3rem;
+    color: $gray-dark-color;
+  }
+  &-item-content {
+    padding: 2rem;
+    border: 1px solid $gray-dark-color;
+    border-top: 0;
+    font-family: $secondary-font;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: $text-color;
+    font-style: italic;
+    line-height: 1.6;
+    /* lúc đầu k có content */
+    display: none;
+  }
+  &-item-text {
+    height: 13rem;
+    overflow-y: auto;
+    padding-right: 2rem;
+
+    /* css scroll */
+    &::-webkit-scrollbar {
+      /* độ rộng scroll */
+      width: 0.6rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      /* thanh ngoài */
+      background-color: $gray-light-color;
+      border-radius: 2rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      /* thanh scroll */
+      background-color: $green-color;
+      border-radius: 2rem;
+    }
+  }
+  
+  @media screen and (max-width: 767px) {
+    padding-top: 5rem;
+    &-container {
+      display: block;
+    }
+    &-image,
+    &-content {
+      width: 100%;
+    }
+    &-image {
+      padding-bottom: 2rem;
+    }
+  }
+}

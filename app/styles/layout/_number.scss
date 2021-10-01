@@ -1,0 +1,60 @@
+.number{
+    background-color: $green-color;
+    &-list{
+        display: flex;
+        justify-content: flex-start;
+        align-items: stretch;
+        flex-wrap: nowrap;
+        flex-direction: row;    
+        margin-left: -2rem;
+    }
+    &-item{ 
+        padding:8.5rem 3.5rem;
+        color:white;
+        text-align:center;
+        border-left: 1px solid white;
+        margin-left:2rem;
+        text-transform: uppercase;
+        width: 20%;
+        &-count{ 
+            font-size:7.2rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+        &-text{
+            line-height:1.4;
+        }
+    }
+    &-item:last-child{
+        border-right: 1px solid white;
+    }
+    @media  screen and (max-width:1023px){
+        &-item{
+            padding: 2rem 1.5rem;
+            &-count{ 
+                font-size: 4.5rem;
+            }
+            &-text{
+                font-size: 1rem;
+            }
+        }
+    }
+    @media  screen and (max-width:767px){
+        &-list{
+            display: block;
+        }
+        &-item{
+            width: 100%;
+            border-left: 0;
+            margin: 0 auto;
+            display: inline-block;
+        }
+        &-item:not(:last-child){
+            border-bottom: 1px solid white;
+        }
+        &-item:last-child{
+            border-right: 0;
+        }
+    }
+
+}

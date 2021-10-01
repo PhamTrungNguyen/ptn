@@ -1,0 +1,26 @@
+.device{
+    padding-top: 11rem;
+    background: linear-gradient(to bottom, rgba(white,0.75),rgba(white,0.6)),
+    url("../images/img-device-bg.png") no-repeat center/cover;
+    /* &-media{
+        c1: chỉnh ra giữa
+        text-align: center;
+    } */
+    &-image{
+        margin: 0 auto -107px;
+        display: inline-block;
+        @include absoluteCenter("left",relative)
+    }
+    @media  screen and (max-width:767px){
+    padding-top: 5rem;
+    &-image{
+        margin: 0 auto -58px;
+        max-width: 80%;
+    }
+    }
+    @media  screen and (max-width:321px){
+     &-image{
+        margin: 0 auto -50px;
+    }
+    }
+}

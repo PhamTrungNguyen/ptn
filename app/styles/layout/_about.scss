@@ -1,0 +1,76 @@
+.about {
+  padding-top: 9rem;
+  padding-bottom: 11rem;
+  background-color: white;
+
+  &-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 3rem;
+  }
+  &-image {
+    width: 380px;
+    height: 250px;
+    object-fit: cover;
+  }
+  &-content {
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  &-icon {
+    font-size: 2rem;
+  }
+  &-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+    max-width: 90%;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  @media screen and (max-width: 767px) {
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+    &-list {
+      /* chỉnh sang ngang */
+      grid-auto-columns: 100%; /* mỗi cột chiếm 80% */
+      grid-auto-flow: column;
+      overflow-x: auto;
+      grid-template-columns: unset;
+      grid-column-gap: 2.5rem;
+      padding: 1rem;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        /* ẩn thanh scroll */
+        height: 0.5rem;
+      }
+      &::-webkit-scrollbar-track {
+        /* thanh ngoài */
+        background-color: $gray-light-color;
+        border-radius: 1rem;
+      }
+      &::-webkit-scrollbar-thumb {
+        /* thanh scroll */
+        background-color: $red-color;
+        border-radius: 1rem;
+      }
+
+      /* hiệu ứng scroll */
+      scroll-snap-type: x mandatory;
+      scroll-snap-stop: always;
+    }
+    &-item {
+      scroll-snap-align: center;
+    }
+  }
+}
+@include hover(".about-item",".about-content ")

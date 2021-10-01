@@ -1,0 +1,73 @@
+.people{
+    margin-top: 13rem;
+    padding:10rem 0 3rem;
+    background:linear-gradient(to bottom, rgba(white,0.9), rgba(white,0.9)),
+     url("../images/img-people-bg.png") no-repeat center center/cover;
+    &-list{
+        margin-top: 9rem;
+        @include flex(stretch,space-between,row,wrap);
+        padding:0 4rem;
+    }
+    &-item{
+        width: calc(50% - 4rem);
+        margin-bottom: 7rem;
+        @include flex(flex-start);
+    }
+    &-avatar{
+        width:11rem;
+        height:11rem;
+        border-radius:50%;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
+    &-info{
+        padding-left: 3rem;
+    }
+    &-name{
+        text-transform: uppercase;
+        font-weight: 550;
+        padding-bottom: 1rem;
+    }
+    &-job{
+        display: inline-block; /* span nene chuyen qua inline-block */
+        font-size: 1.5rem;
+        font-family: $secondary-font;
+        font-style: italic;
+        padding-bottom: 2rem;
+        margin-bottom:2rem;
+        position: relative;
+        &:after {
+            content:"";
+            width:5rem;
+            height:4px;
+            background-color: $red-color;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+    }
+    &-desc{
+        font-size: 1.5rem;
+        font-family: $secondary-font;
+       color:$text-color;
+       line-height:1.4;
+       font-weight: 300;
+    }
+    @media  screen and (max-width:1023px){
+        padding:5rem 0 1rem;
+        &-item{
+            width: 100%;
+            margin-bottom: 4rem;
+        }
+    }
+    @media  screen and (max-width:767px){
+        &-list{
+            padding:0;
+            margin-top: 5rem;
+        }
+        &-avatar{
+            width: 8rem;
+            height: 8rem;
+        }
+    }
+}

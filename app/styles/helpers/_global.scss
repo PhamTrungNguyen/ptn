@@ -1,0 +1,23 @@
+// Các thiết lập chung
+a{
+    text-decoration: none;
+}
+img {
+    display: block;
+    max-width: 100%;
+}
+body{
+    font-family:$primary-font;
+    line-height:1; // chiều cao theo phong chữ
+    color: $title-color;
+    font-size: 1.4rem;
+}
+input,
+button{
+    outline: none;
+    font-family: $primary-font;
+    line-height: 1;
+}
+button{
+    cursor: pointer;
+}

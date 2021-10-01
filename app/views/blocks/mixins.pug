@@ -1,0 +1,90 @@
+mixin menuLink(title, href = "#")
+	li.header-menu-item
+		a.header-menu-link(href = href)= title	
+
+mixin headerBottomItem(number, title)
+	.header-bottom-item
+		span.header-bottom-number= number
+		span.header-bottom-text= title
+
+mixin blockBox(caption, title, desc)
+	.block-box
+		h3.block-box-caption= caption
+		h2.block-box-title= title
+		if desc 
+			p.block-box-desc= desc
+
+mixin serviceItem(src, title, desc)
+	.service-item 
+		img.service-item-icon(src= src)
+		.service-item-info 
+			h3.service-item-title= title
+			span.service-item-desc= desc 
+
+
+mixin wedoItem(src, title, desc, active = "")
+	.wedo-item(class= active)
+		.wedo-item-header 
+			img(src= src).wedo-item-icon
+			.wedo-item-title= title
+			i.fal.fa-angle-up.wedo-item-arrow
+		.wedo-item-content
+			.wedo-item-text= desc
+
+
+mixin teamSocial(facebook = "#", instagram = "#", phone = "#")
+	ul.team-social
+		li.team-social-item
+			a.team-social-link(href= facebook)
+				i.fab.fa-facebook-f
+		li.team-social-item
+			a.team-social-link(href= instagram)
+				i.fab.fa-instagram
+		li.team-social-item
+			a.team-social-link(href= phone)
+				i.fas.fa-phone 
+
+mixin teamItem(src="../images/nguyen.jpg", name="Phạm Trung Nguyên", position="Front-End")
+	.team-item
+		.team-main 
+			img(src= src).team-image
+			.team-content 
+				if block
+					block
+		.team-info
+			h3.team-name= name
+			span.team-position= position
+
+mixin workItem(src="../images/img-work1.png", name="Trung Nguyên", desc="Front-end")
+	.work-item 
+		img.work-image(src= src)
+		.work-content
+			i.fa.fa-home
+			h3.work-title= name
+			span.work-desc= desc
+
+
+mixin peopleItem(src="../images/nguyen1.jpg",name="Nguyên", job="Front-End", desc="Front-end web development is the development of the graphical user interface of a website, through the use of HTML, CSS, and JavaScript, so that users can view and interact with that website")
+	li.people-item
+		img.people-avatar(src= src)
+		.people-info
+			h3.people-name= name
+			span.people-job= job
+			p.people-desc= desc
+
+mixin storyItem(src="../images/nguyen1.jpg",number="01",text="Jan",title="Pham Trung Nguyên",desc="“Công nghệ thông tin” – gọi tắt là IT (Information Technology) trên thế giới bao gồm khoa học máy tính và kỹ thuật máy tính",metaNumber="112", view="11")
+	li.story-item
+		.story-media
+			img.story-image(src= src)
+			.story-date 
+				h3.story-date-number= number
+				span.story-date-text= text
+		h3.story-title= title
+		span.story-desc= desc
+		.story-meta
+			.story-meta-item
+				i.fa.fa-eye.story-meta-icon
+				span.story-meta-number= metaNumber
+			.story-meta-item
+				i.fa.fa-comment.story-meta-icon
+				span.story-meta-number= view

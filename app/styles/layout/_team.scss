@@ -1,0 +1,71 @@
+.team{
+    padding-top: 8rem;
+    &-list{
+       display: grid;
+       grid-template-columns: repeat(3,1fr);
+       grid-gap:0 30px;
+    }
+
+    &-image{
+        width:100%;
+        height:430px;
+        object-fit: cover;
+    }
+    &-social{
+      @include flex(center,center);
+    }
+    &-social-link{
+        @include flex(center,center);
+        width:6rem;
+        height:6rem;
+        color:$red-color;
+        font-size: 2.5rem;
+        background-color: $yellow-color;
+        transition: all 0.25s ease;
+        &:hover {
+            background-color: $red-color;
+            color: white;
+        }
+    }
+    &-social-item:not(:first-child){
+        border-left: 1px solid $red-color;
+    }
+    &-info{
+        padding: 3rem 1.5rem;
+        text-align: center;
+        height:calc(100% - 43rem);
+        @include flex(center,space-between,column);
+    }
+    &-name{
+        padding-bottom: 1.5rem;
+        color: $title-color;
+        font-weight: 600;
+        text-transform: uppercase;
+        line-height:1.4rem;
+        
+    }
+    &-position{
+        font-family: $secondary-font;
+        color: $gray-dark-color;
+        font-style: italic;
+        font-size: 1.5rem;
+    }
+    @media  screen and (max-width:1023px){
+        padding-top: 5rem;
+        &-list{
+            @include scroll-x("false",100%);
+        }
+       
+    
+    }
+}
+.brand{
+    padding: 4rem 0;
+    background-color: $gray-dark-color;
+    @media  screen and (max-width:767rem){
+        padding:0;
+    }
+}
+/* mixin class */
+/* hover vào class .team-main */
+@include hover(".team-main",".team-content ")
