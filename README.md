@@ -1,4 +1,4 @@
 - Required NodeJS installed
 - `npm install` then run `npm run dev`
 
-fdasdsd
+chao anh ban dep ytraii
