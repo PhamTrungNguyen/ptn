@@ -645,30 +645,15 @@ button {
         padding-bottom: 2rem; } }
 
 .quote {
+  /* khi sử dụng slick slider dùng display:flex sẽ bị lỗi bên sẽ không dùng */
   padding: 6.5rem 0;
   background-color: #f8f8f8; }
-  .quote-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap; }
   .quote-arrow {
     color: #cccccc;
     font-size: 3rem;
     cursor: pointer;
     padding: 2rem; }
-  .quote-content {
+  .quote-item {
     padding: 0 5.5rem;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -685,6 +670,26 @@ button {
     flex-direction: row;
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap; }
+  .quote .slick-arrow {
+    background-color: transparent;
+    border: 0;
+    color: #cccccc;
+    font-size: 5rem;
+    cursor: pointer;
+    padding: 2rem;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 10; }
+  .quote .slick-prev {
+    left: 0; }
+  .quote .slick-next {
+    right: 0; }
+  .quote .slick-initialized .slick-slide {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
   .quote-icon {
     width: 15rem;
     height: 15rem;
@@ -705,9 +710,16 @@ button {
     flex-wrap: nowrap;
     border: 3px solid #95e1d3;
     -ms-flex-negative: 0;
-    flex-shrink: 0; }
+    flex-shrink: 0;
+    margin-right: 6rem; }
+  .quote-image {
+    width: 22rem;
+    height: 22rem;
+    border-radius: 50%;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    margin-right: 2.5rem; }
   .quote-info {
-    padding-left: 6rem;
     font-style: italic;
     font-size: 1.7rem; }
   .quote-desc {
@@ -735,7 +747,7 @@ button {
       padding: 4.5rem 0; }
       .quote-arrow {
         display: none; }
-      .quote-content {
+      .quote-item {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -743,11 +755,11 @@ button {
         padding: 0; }
       .quote-icon {
         width: 10rem;
-        height: 10rem; }
+        height: 10rem;
+        margin-right: 0; }
         .quote-icon img {
           max-width: 50%; }
       .quote-info {
-        padding-left: 0;
         margin-top: 2rem; }
       .quote-author {
         font-size: 2rem;

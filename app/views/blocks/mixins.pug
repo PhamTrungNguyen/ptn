@@ -14,12 +14,12 @@ mixin blockBox(caption, title, desc)
 		if desc 
 			p.block-box-desc= desc
 
-mixin serviceItem(src, title, desc)
+mixin serviceItem(data)
 	.service-item 
-		img.service-item-icon(src= src)
+		img.service-item-icon(src= data.src)
 		.service-item-info 
-			h3.service-item-title= title
-			span.service-item-desc= desc 
+			h3.service-item-title= data.title
+			span.service-item-desc= data.desc 
 
 
 mixin wedoItem(src, title, desc, active = "")
@@ -48,7 +48,7 @@ mixin teamItem(src="../images/nguyen.jpg", name="Phạm Trung Nguyên", position
 	.team-item
 		.team-main 
 			img(src= src).team-image
-			.team-content 
+			.team-content 	
 				if block
 					block
 		.team-info
@@ -88,3 +88,15 @@ mixin storyItem(src="../images/nguyen1.jpg",number="01",text="Jan",title="Pham T
 			.story-meta-item
 				i.fa.fa-comment.story-meta-icon
 				span.story-meta-number= view
+
+
+mixin quoteItem(src="../images/img-quote.png", type=false,desc="Công nghệ là sự phát minh, sự thay đổi, việc sử dụng, và kiến thức về các công cụ, máy móc, kỹ thuật, kỹ năng nghề nghiệp, hệ thống, và phương pháp tổ chức, nhằm giải quyết một vấn đề, cải tiến một giải pháp đã tồn tại, đạt một mục đích, hay thực hiện một chức năng cụ thể đòi hỏi hàm lượng chất xám cao",author="Nguyên")
+	.quote-item 
+		if type == false
+			.quote-icon
+				img(src= src)
+		else
+			img(src= src).quote-image
+		.quote-info
+			p.quote-desc= desc 
+			span.quote-author= author 
